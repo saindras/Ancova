@@ -1,1 +1,1 @@
-# ancova
+# Analysis of Covariances (Ancova)

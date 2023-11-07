@@ -1,5 +1,3 @@
-# Analysis of Covariance - Bahasa Indonesia
-
 ## Sekilas tentang Ancova
 
 Ancova adalah singkatan dari "Analysis of Covariance" yang merupakan metode statistik yang menggabungkan elemen-elemen dari dua teknik statistik yang berbeda: Analisis Varians (Anova) dan Analisis Regresi. Tujuan utama Ancova adalah untuk membandingkan rata-rata antara dua atau lebih kelompok dengan mempertimbangkan pengaruh variabel bebas yang disebut sebagai covariate. Ini digunakan untuk memeriksa apakah ada perbedaan signifikan antara kelompok-kelompok tersebut setelah mengontrol atau memperhitungkan perbedaan dalam nilai rata-rata covariate. Covariate adalah variabel yang mempengaruhi variabel terikat, dan dengan mengontrol covariate ini, Ancova membantu mengurangi variabilitas yang dapat menyebabkan kesalahan dalam penentuan perbedaan antara kelompok-kelompok tersebut.

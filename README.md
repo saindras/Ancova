@@ -1,4 +1,4 @@
-# Analysis of Covariance (Ancova) - Bahasa Indonesia
+# Analysis of Covariance - Bahasa Indonesia
 
 ## Sekilas tentang Ancova
 

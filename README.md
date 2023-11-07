@@ -27,6 +27,6 @@ Adapun uji asumsi yang terlebih dahulu dilakukan sebelum ke proses Ancova adalah
 
 ## Referensi
 
-1. [Analysis of covariance using Python] https://www.youtube.com/watch?v=FhZB1oGVrYc
-2. [Ancova in R] https://www.datanovia.com/en/lessons/Ancova-in-r/
-3. [Ancova using R and Python] https://www.reneshbedre.com/blog/Ancova.html
+1. [Analysis of covariance using Python] (https://www.youtube.com/watch?v=FhZB1oGVrYc)
+2. [Ancova in R] (https://www.datanovia.com/en/lessons/Ancova-in-r/)
+3. [Ancova using R and Python] (https://www.reneshbedre.com/blog/Ancova.html)

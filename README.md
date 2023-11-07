@@ -21,7 +21,7 @@ Adapun uji asumsi yang terlebih dahulu dilakukan sebelum ke proses Ancova adalah
 
 ## Hasil perhitungan menggunakan Python, R, dan SPSS
 
-1. Hasil perhitungan menggunakan bahasa Python: https://nbviewer.org/github/saindras/Ancova/blob/main/Ancova.ipynb
+1. Hasil perhitungan menggunakan bahasa Python: https://nbviewer.org/github/saindras/Ancova/blob/main/ANCOVA.ipynb
 2. Hasil perhitungan menggunakan bahasa R: https://rpubs.com/gsaindras/Ancova-satu-jalur
 3. Hasil perhitungan menggunakan SPSS: Anda dapat menghubungi author melalui email di alamat gsaindras@undiksha.ac.id
 

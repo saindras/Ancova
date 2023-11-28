@@ -1,0 +1,152 @@
+---
+title: "Ancova satu jalur menggunakan R"
+author: "Gede Saindra Santyadiputra"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```
+<a href="https://doi.org/10.5281/zenodo.10212024" target="_blank">![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10212024.svg)</a>
+
+## Load the library
+
+```{r warning=FALSE}
+library(conflicted)
+library(rstatix)
+library(gridExtra)
+library(dplyr)
+library(ggpubr)
+library(rstatix)
+library(broom)
+library(readr)
+library(tidyverse)
+```
+
+## Load the dataset
+
+```{r}
+df58=read_csv("data58.csv")
+df58
+```
+
+## Summary statistics
+
+### Summary statistics for dependent variable posttest
+
+```{r}
+df58 %>% group_by(VLEs) %>%  get_summary_stats(posttest, type="common")
+```
+
+### Summary statistics for covariate pretest
+
+```{r}
+df58 %>% group_by(VLEs) %>%  get_summary_stats(pretest, type="common")
+```
+
+### Data visualization
+
+```{r}
+p1 <- ggplot(df58, aes(pretest, posttest, colour = VLEs)) + geom_point(size = 3) + theme(legend.position="top")
+p2 <- ggplot(df58, aes(x = VLEs, y = posttest, col = VLEs)) + geom_boxplot(outlier.shape = NA) + geom_jitter(width = 0.2) + theme(legend.position="top")
+p3 <- ggplot(df58, aes(x = VLEs, y = pretest, fill = VLEs)) + geom_boxplot(outlier.shape = NA) + geom_jitter(width = 0.2) + theme(legend.position="top")
+grid.arrange(p1, p2, p3, ncol=3)
+```
+
+## Model fit
+
+### Fit the model, the covariate goes first
+
+```{r}
+model <- lm(posttest ~ pretest + VLEs, data = df58)
+```
+
+### Inspect the model diagnostic metrics and remove details
+
+```{r}
+model.metrics <- augment(model) %>%
+  select(-.hat, -.sigma, -.fitted)
+head(model.metrics, 3)
+```
+
+## Assumption tests
+
+### Outliers above 3.00
+
+```{r}
+model.metrics %>% 
+  dplyr::filter(abs(.std.resid) > 3) %>%
+  as.data.frame()
+```
+
+### Outliers above 2.50
+
+```{r}
+model.metrics %>% 
+  dplyr::filter(abs(.std.resid) > 2.5) %>%
+  as.data.frame()
+```
+
+### Linearity
+
+```{r}
+ggscatter(
+  df58, x = "pretest", y = "posttest",
+  color = "VLEs", add = "reg.line"
+)+
+  stat_regline_equation(
+    aes(label =  paste(..eq.label.., ..rr.label.., sep = "~~~~"), color = VLEs)
+  )
+```
+
+### Homogeneity of regression slopes
+
+```{r}
+df58 %>% anova_test(posttest ~ VLEs*pretest)
+```
+
+### Normality of residuals
+
+```{r}
+shapiro_test(model.metrics$.resid)
+```
+
+### Homogeneity of variances
+
+```{r}
+model.metrics %>% levene_test(.resid ~ VLEs)
+```
+
+## ANCOVA
+
+### ANCOVA table
+
+```{r}
+anova_test(data = df58, formula = posttest ~ pretest + VLEs, type = 3, detailed = TRUE)
+```
+
+### Estimated Marginal Means (EMM)
+
+```{r}
+adj_means <- emmeans_test(data = df58, formula = posttest ~ VLEs, covariate = pretest)
+get_emmeans(adj_means)
+```
+
+### Post-hoc test: bonferroni
+
+```{r}
+emmeans_test(data = df58, formula = posttest ~ VLEs, covariate = pretest, p.adjust.method = "bonferroni")
+```
+
+## Referensi
+
+1. <a href="https://www.datanovia.com/en/lessons/Ancova-in-r/" target="_blank">Ancova in R</a>
+2. <a href="https://www.reneshbedre.com/blog/Ancova.html" target="_blank">Ancova using R and Python</a>
+
+## Sitasi dokumen ini
+
+`Santyadiputra, G. S., Purnomo, & Juniantari, M. (2023, November 28). Ancova satu jalur menggunakan R. RPubs. https://doi.org/10.5281/zenodo.10212024`
+
+<a href="https://doi.org/10.5281/zenodo.10212024" target="_blank">![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10212024.svg)</a>

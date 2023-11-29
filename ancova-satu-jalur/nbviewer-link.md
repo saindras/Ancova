@@ -1,3 +1,3 @@
 Publish version:
 
-<https://nbviewer.org/github/saindras/statistik/blob/5ecfb84036a86f6b0f385bf3b5fd29300dba6650/ancova-satu-jalur/ancovasatujalur.ipynb>
+<https://nbviewer.org/github/saindras/statistik/blob/02ab8fbb5a938633a0a167eed4dc419389cd3093/ancova-satu-jalur/ancovasatujalur.ipynb>

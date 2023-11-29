@@ -1,3 +1,3 @@
 Publish version:
 
-<https://nbviewer.org/github/saindras/statistik/blob/32e904396429627757b28a7aa1ca79e31cbc119d/ancova-satu-jalur/ancova-satu-jalur-menggunakan-python.ipynb>
+<https://nbviewer.org/github/saindras/statistik/blob/4db47c97616b2579d986841fb2c869da0366606d/ancova-satu-jalur/ancova-satu-jalur-menggunakan-python.ipynb>

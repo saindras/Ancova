@@ -16,4 +16,4 @@ jobs:
     - name: Update NBViewer Links
       uses: KensingtonOscupant/nbviewer-flush-cache-action@v1.0.4
       with:
-        file_path: 'ancova-satu-jalur/ancovasatujalur.ipynb' # IMPORTANT! path to the file where you would like to have the links changed, for the readme it would be 'README.md'
+        file_path: 'README.md' # IMPORTANT! path to the file where you would like to have the links changed, for the readme it would be 'README.md'
